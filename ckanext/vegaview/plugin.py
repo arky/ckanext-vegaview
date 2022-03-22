@@ -1,5 +1,5 @@
 import logging
-
+import six
 import ckan.plugins as p
 
 log = logging.getLogger(__name__)
@@ -21,7 +21,7 @@ class VegaView(p.SingletonPlugin):
 
     def info(self):
         schema = {
-            'vega_specification': [not_empty, unicode],
+            'vega_specification': [not_empty, six.text_type],
             'limit': [ignore_empty, natural_number_validator],
             'offset': [ignore_empty, natural_number_validator]
         }
